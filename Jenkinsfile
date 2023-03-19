@@ -12,6 +12,7 @@ pipeline {
                 script {
                     dir('terraform') {
                         sh "terraform init"
+                        sh "echo "about to apply plan""
                         sh "terraform apply --auto-approve -lock=false"
                         sh "echo "cluster created""
                     }
