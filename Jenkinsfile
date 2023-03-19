@@ -7,18 +7,6 @@ pipeline {
         AWS_DEFAULT_REGION = "us-east-2"
     }
     stages {
-        stage("Create an EKS Cluster") {
-            steps {
-                script {
-                    dir('terraform') {
-                        sh "terraform init"
-                        sh "echo "about to apply plan""
-                        sh "terraform apply --auto-approve -lock=false"
-                        sh "echo "cluster created""
-                    }
-                }
-            }
-        }
         stage("Deploy to EKS") {
             steps {
                 script {
