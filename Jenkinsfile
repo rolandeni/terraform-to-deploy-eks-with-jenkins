@@ -12,9 +12,6 @@ pipeline {
                 script {
                     dir('kubernetes') {
                         sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-                        sh "echo "kubeconfig updated""
-                        sh "kubectl create namespace sock-shop"
-                        sh "echo "namespace created""
                         sh "kubectl apply -f complete-demo.yaml"
                         sh "echo "complete demo done""
                         sh "kubectl apply -f manifests-monitoring" 
