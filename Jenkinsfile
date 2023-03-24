@@ -12,6 +12,7 @@ pipeline {
                 script {
                     dir('terraform') {
                         sh "terraform init"
+                        
                   
                     }
                 }
@@ -22,10 +23,11 @@ pipeline {
                 script {
                     dir('kubernetes') {
                         sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-                        sh "kubectl apply -f complete-demo.yaml"
-                      
-                        sh "kubectl apply -f manifests-monitoring" 
-                      
+                        sh "kubectl apply -f manifests"
+                        sh "kubectl get deployments,svc"
+                        sh "kubectl apply -f manifests-monitoring"
+                        sh "kubectl apply -f portfolio.yaml"
+                        sh "kubectl get deployments,svc"
                         
                     }
                 }
