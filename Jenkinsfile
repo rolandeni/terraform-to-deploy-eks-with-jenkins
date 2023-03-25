@@ -27,7 +27,7 @@ pipeline {
                         sh "kubectl apply -f patch.yaml"
                         sh "kubectl get deployments,svc"
                         sh "kubectl apply -f manifests-monitoring"
-                        sh "kubectl patch svc myapp-eks-cluster --patch "$(cat patch.yaml)""
+                        sh "kubectl patch svc my-sock-shop --patch "$(cat patch.yaml)""
                         sh "kubectl get deployments,svc"
                         
                     }
