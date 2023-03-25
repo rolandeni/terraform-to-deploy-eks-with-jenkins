@@ -8,11 +8,11 @@ metadata:
   labels:
     name: front-end
   namespace: sock-shop
+
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
-  - port: 80
-    targetPort: 8079
-    nodePort: 30001
+    - port: 80
+      targetPort: 80
   selector:
     name: front-end
