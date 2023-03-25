@@ -4,11 +4,3 @@ kind: Namespace
 metadata:
   name: sock-shop
   
- ports:
-  - port: 443
-    targetPort: 443
-    name: "https"
-  - port: 80
-    targetPort: 80
-    name: "http"
-  type: LoadBalancer
