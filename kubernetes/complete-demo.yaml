@@ -64,6 +64,7 @@ metadata:
   labels:
     name: carts
   namespace: sock-shop
+
 spec:
   ports:
     # the port that this service should serve on
@@ -309,14 +310,15 @@ metadata:
   labels:
     name: front-end
   namespace: sock-shop
+
 spec:
-  type: NodePort
+  type: LoadBalancer
   ports:
-  - port: 80
-    targetPort: 8079
-    nodePort: 30001
+    - port: 80
+      targetPort: 80
   selector:
     name: front-end
+    
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -677,6 +679,7 @@ metadata:
   labels:
     name: session-db
   namespace: sock-shop
+
 spec:
   ports:
     # the port that this service should serve on
