@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: prometheus-loadbalancer
+  annotations:
+    # Optional annotation to specify the type of LoadBalancer service
+    # For example, if your cloud provider supports it, you can use 'nlb' or 'elb' type
+    service.beta.kubernetes.io/aws-load-balancer-type: elb
+spec:
+  type: LoadBalancer
+  selector:
+    app: prometheus
+  ports:
+    - name: http
+      port: 9090
+      targetPort: 9090
