@@ -23,7 +23,7 @@ pipeline {
                 script {
                     dir('kubernetes') {
                         sh "aws eks update-kubeconfig --name myapp-eks-cluster"
-                        sh "kubectl apply -f manifests"
+                        sh "kubectl apply -f comlete-demo.yaml"
                         
                         sh "kubectl get deployments,svc"
                         sh "kubectl apply -f manifests-monitoring"
